@@ -1,10 +1,10 @@
 {
   "users": [
     {
-      "id": "23",
-      "firstName": "James",
-      "age": 20,
-      "companyId": "1"
+      "firstName": "Musa",
+      "age": 45,
+      "companyId": "2",
+      "id": "23"
     },
     {
       "id": "40",
@@ -17,11 +17,6 @@
       "firstName": "Yemi",
       "age": 21,
       "companyId": "2"
-    },
-    {
-      "firstName": "Shola",
-      "age": 27,
-      "id": "KRvtIy_"
     }
   ],
   "companies": [
