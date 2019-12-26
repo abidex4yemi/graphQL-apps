@@ -3,3 +3,4 @@ dist/
 node_modules/
 schema.graphql
 .env
+.DS_STORE
