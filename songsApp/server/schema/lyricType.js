@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const graphql = require("graphql");
-const SongType = require("./songType");
 
 const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLID } = graphql;
 
@@ -19,7 +18,7 @@ const LyricType = new GraphQLObjectType({
       type: GraphQLString
     },
     song: {
-      type: SongType,
+      type: require("./songType"),
       resolve(parentValue) {
         return Lyric.findById(parentValue)
           .populate("song")

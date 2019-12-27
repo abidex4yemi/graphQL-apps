@@ -6,8 +6,8 @@ const { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLList } = graphql;
 
 const Song = mongoose.model("song");
 
-const songType = new GraphQLObjectType({
-  name: "songType",
+const SongType = new GraphQLObjectType({
+  name: "SongType",
   fields: () => ({
     id: {
       type: GraphQLID
@@ -24,4 +24,4 @@ const songType = new GraphQLObjectType({
   })
 });
 
-module.exports = songType;
+module.exports = SongType;
