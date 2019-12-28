@@ -32,7 +32,7 @@ const mutations = new GraphQLObjectType({
           type: GraphQLID
         }
       },
-      resolve(parentValue, args) {
+      resolve(parentValue, { content, songId }) {
         return Song.addLyric(songId, content);
       }
     },
