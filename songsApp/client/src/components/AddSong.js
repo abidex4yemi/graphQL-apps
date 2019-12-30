@@ -3,6 +3,8 @@ import gql from "graphql-tag";
 import { graphql } from "react-apollo";
 import { Link } from "react-router-dom";
 
+import fetchSongQuery from "../queries/fetchSongs";
+
 const AddSong = props => {
   const [songTitle, setSongTitle] = useState("");
 
@@ -12,11 +14,18 @@ const AddSong = props => {
 
   const handleOnSubmit = evt => {
     evt.preventDefault();
-    props.mutate({
-      variables: {
-        title: songTitle
-      }
-    });
+    props
+      .mutate({
+        variables: {
+          title: songTitle
+        },
+        refetchQueries: [
+          {
+            query: fetchSongQuery
+          }
+        ]
+      })
+      .then(res => props.history.push("/"));
   };
 
   return (
