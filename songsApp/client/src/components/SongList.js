@@ -1,9 +1,9 @@
 import React from "react";
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
+import { Link } from "react-router-dom";
 
 const SongList = props => {
-  console.log(props);
   const renderSongs = () => {
     return props.data.songs.map(song => (
       <li className="collection-item" key={song.id}>
@@ -15,7 +15,7 @@ const SongList = props => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col s4">
+        <div className="col s6">
           {props.data.loading ? (
             <div>Loading</div>
           ) : (
@@ -26,6 +26,10 @@ const SongList = props => {
               {renderSongs()}
             </ul>
           )}
+          <br />
+          <Link to="/songs/new" className="btn-floating btn-large red right">
+            <i className="material-icons">add</i>
+          </Link>
         </div>
       </div>
     </div>
