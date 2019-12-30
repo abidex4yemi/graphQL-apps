@@ -4,22 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js --ignore client"
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.2",
-    "babel-core": "^6.22.1",
-    "babel-loader": "^6.2.10",
-    "babel-preset-env": "^1.1.8",
-    "babel-preset-react": "^6.22.0",
-    "css-loader": "^0.26.1",
-    "html-webpack-plugin": "^2.26.0",
-    "style-loader": "^0.13.1",
-    "webpack": "^2.2.0",
-    "webpack-dev-middleware": "^1.9.0"
+    "nodemon": "^2.0.2"
   },
   "dependencies": {
     "apollo-cache-inmemory": "^1.6.5",
@@ -28,6 +19,7 @@
     "axios": "^0.19.0",
     "body-parser": "^1.19.0",
     "connect-mongo": "^3.2.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-graphql": "^0.9.0",
@@ -39,10 +31,6 @@
     "mongoose": "^5.8.3",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "react": "^16.12.0",
-    "react-apollo": "^3.1.3",
-    "react-dom": "^16.12.0",
-    "react-router": "^5.1.2",
-    "react-router-dom": "^5.1.2"
+    "react-apollo": "^3.1.3"
   }
 }
