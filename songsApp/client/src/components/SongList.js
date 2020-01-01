@@ -19,7 +19,7 @@ const SongList = props => {
   const renderSongs = () => {
     return props.data.songs.map(song => (
       <li className="collection-item" key={song.id}>
-        {song.title}
+        <Link to={`/songs/${song.id}`}>{song.title}</Link>
         <i
           className="material-icons right"
           style={{ color: "red", cursor: "pointer" }}
