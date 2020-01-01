@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "react-apollo";
 import { Link } from "react-router-dom";
 
-import fetchSongQuery from "../queries/fetchSongs";
+import fetchSongsQuery from "../queries/fetchSongs";
 import gql from "graphql-tag";
 
 const SongList = props => {
@@ -63,4 +63,4 @@ const mutation = gql`
   }
 `;
 
-export default graphql(mutation)(graphql(fetchSongQuery)(SongList));
+export default graphql(mutation)(graphql(fetchSongsQuery)(SongList));
