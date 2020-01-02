@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const { MongoMemoryServer } = require("mongodb-memory-server");
+require("./user");
 
 const mongoServer = new MongoMemoryServer();
 
