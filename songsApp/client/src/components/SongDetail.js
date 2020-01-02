@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import fetchSongQuery from "../queries/fetchSong";
 import AddLyric from "./AddLyric";
+import LyricList from "./LyricList";
 
 const SongDetail = props => {
   const { song } = props.data;
@@ -17,8 +18,8 @@ const SongDetail = props => {
 
     return (
       <div>
-        <h3>Song Detail</h3>
-        <h4>Title: {song.title}</h4>
+        <h5>Title: {song.title}</h5>
+        <LyricList lyrics={song.lyrics} />
       </div>
     );
   };
@@ -28,11 +29,14 @@ const SongDetail = props => {
       <div className="row">
         <div className="col s6">
           <br />
+          <br />
           <Link to="/">Back</Link>
           {renderSongDetails()}
         </div>
         <div className="col s6">
-          <AddLyric />
+          <br />
+          <br />
+          <AddLyric songId={props.match.params.id} />
         </div>
       </div>
     </div>

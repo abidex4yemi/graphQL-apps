@@ -11,6 +11,17 @@ const AddLyric = props => {
 
   const handleOnSubmit = evt => {
     evt.preventDefault();
+
+    props
+      .mutate({
+        variables: {
+          songId: props.songId,
+          content: lyric.content
+        }
+      })
+      .then(res => {
+        setLyric({ content: "" });
+      });
   };
 
   return (
@@ -37,10 +48,13 @@ const AddLyric = props => {
 };
 
 const mutation = gql`
-  mutation AddLyricToSong($songId: ID, $content: String) {
-    addLyricToSong(songId: $songId, content: $content) {
+  mutation AddLyricToSong($content: String, $songId: ID) {
+    addLyricToSong(content: $content, songId: $songId) {
       id
-      content
+      lyrics {
+        id
+        content
+      }
     }
   }
 `;
