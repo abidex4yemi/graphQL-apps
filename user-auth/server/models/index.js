@@ -6,6 +6,8 @@ const mongoServer = new MongoMemoryServer();
 
 mongoose.Promise = Promise;
 
+let MONGO_URI = "";
+
 const connectDB = () => {
   mongoServer.getConnectionString().then(mongoUri => {
     // options for mongoose above 4.11.3 and above
@@ -15,6 +17,8 @@ const connectDB = () => {
       reconnectTries: Number.MAX_VALUE,
       reconnectInterval: 1000
     };
+
+    MONGO_URI = mongoUri;
 
     mongoose.connect(mongoUri, mongooseOPTS);
 
@@ -33,5 +37,6 @@ const connectDB = () => {
 };
 
 module.exports = {
-  connectDB
+  connectDB,
+  MONGO_URI
 };
