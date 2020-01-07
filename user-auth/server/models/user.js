@@ -11,7 +11,7 @@ const userSchema = new Schema({
   password: String
 });
 
-userSchema.pre("save", next => {
+userSchema.pre("save", function(next) {
   const user = this;
   if (!user.isModified("password")) {
     return next();
@@ -22,7 +22,7 @@ userSchema.pre("save", next => {
       return next(err);
     }
 
-    bcrypt.hash(user.password, salt, null, (err, hash) => {
+    bcrypt.hash(user.password, salt, (err, hash) => {
       if (err) {
         return next(err);
       }
@@ -33,13 +33,10 @@ userSchema.pre("save", next => {
   });
 });
 
-userSchema.methods.comparePassword = function comparePassword(
-  providedPassword,
-  cb
-) {
+userSchema.method("comparePassword", function(providedPassword, cb) {
   bcrypt.compare(providedPassword, this.password, (err, isMatch) => {
     cb(err, isMatch);
   });
-};
+});
 
 mongoose.model("user", userSchema);

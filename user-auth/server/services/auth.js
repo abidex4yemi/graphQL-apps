@@ -16,7 +16,7 @@ passport.deserializeUser((id, done) => {
 
 passport.use(
   new LocalStrategy({ usernameField: "email" }, (email, password, done) => {
-    User.findOne({ email: email.toLowerCase() }, (err, user) => {
+    User.findOne({ email }, (err, user) => {
       // If error while searching for user
       if (err) {
         return done(err);
