@@ -8,6 +8,16 @@ const AuthForm = ({ handleSubmit, errors }) => {
     setFormValue(prevState => ({ ...prevState, [name]: value }));
   };
 
+  const renderError = () => {
+    if (errors.length) {
+      return errors.map(error => (
+        <div style={{ color: "red" }} key={error}>
+          {error}
+        </div>
+      ));
+    }
+  };
+
   return (
     <div className="row">
       <form
@@ -43,11 +53,7 @@ const AuthForm = ({ handleSubmit, errors }) => {
           </div>
         </div>
 
-        {errors.map(error => (
-          <div style={{ color: "red" }} key={error}>
-            {error.replace('"', "")}
-          </div>
-        ))}
+        {renderError()}
 
         <button
           className="btn waves-effect waves-light right"

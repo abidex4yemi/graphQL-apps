@@ -40,7 +40,7 @@ const Header = props => {
     return (
       <>
         <li>
-          <Link to="/register">register</Link>
+          <Link to="/signup">register</Link>
         </li>
         <li>
           <Link to="/login">login</Link>

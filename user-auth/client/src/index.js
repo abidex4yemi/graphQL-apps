@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import App from "./components/App";
 import Login from "./components/login";
+import SignUp from "./components/SignUp";
 
 const cache = new InMemoryCache();
 
@@ -27,6 +28,7 @@ ReactDOM.render(
     <Router>
       <Route path="/" component={App} />
       <Route exact path="/login" component={Login} />
+      <Route exact path="/signup" component={SignUp} />
     </Router>
   </ApolloProvider>,
   document.getElementById("root")
