@@ -9,6 +9,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import App from "./components/App";
 import Login from "./components/login";
 import SignUp from "./components/SignUp";
+import Dashboard from "./components/Dashboard";
+import requireAuth from "./components/HOC/requireAuth";
 
 const cache = new InMemoryCache();
 
@@ -29,6 +31,7 @@ ReactDOM.render(
       <Route path="/" component={App} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/signup" component={SignUp} />
+      <Route exact path="/dashboard" component={requireAuth(Dashboard)} />
     </Router>
   </ApolloProvider>,
   document.getElementById("root")

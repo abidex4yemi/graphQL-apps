@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { graphql } from "react-apollo";
 import AuthForm from "./AuthForm";
 import loginMutation from "../mutations/login";
@@ -6,6 +6,12 @@ import currentUserQuery from "../queries/currentUserQuery";
 
 const Login = props => {
   const [errors, setError] = useState([]);
+
+  useEffect(() => {
+    if (props.data.user) {
+      props.history.push("/dashboard");
+    }
+  }, [props]);
 
   const handleSubmit = ({ email, password }) => {
     props
@@ -35,4 +41,4 @@ const Login = props => {
   );
 };
 
-export default graphql(loginMutation)(Login);
+export default graphql(currentUserQuery)(graphql(loginMutation)(Login));

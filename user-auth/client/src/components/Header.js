@@ -26,11 +26,7 @@ const Header = props => {
     if (user) {
       return (
         <li>
-          <a
-            href="#!"
-            onClick={handleLogout}
-            className="waves-effect waves-light btn"
-          >
+          <a onClick={handleLogout} className="waves-effect waves-light btn">
             logout
           </a>
         </li>
